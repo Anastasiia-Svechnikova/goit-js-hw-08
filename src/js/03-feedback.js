@@ -19,6 +19,22 @@ function onFormInput(e) {
 
 function onFormSubmit(e) {
   e.preventDefault();
+  const messageInputRef = form.querySelector('textarea');
+  const emailInputRef = form.querySelector('input');
+
+  if (!form.elements.email.value) {
+    emailInputRef.classList.add('input--error');
+    return;
+  }
+
+  emailInputRef.classList.remove('input--error');
+
+  if (!form.elements.message.value) {
+    messageInputRef.classList.add('input--error');
+    return;
+  }
+  messageInputRef.classList.remove('input--error');
+
   console.log(data);
   e.target.reset();
   localStorage.removeItem('feedback-form-state');
