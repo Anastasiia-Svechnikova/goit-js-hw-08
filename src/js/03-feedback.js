@@ -21,21 +21,23 @@ function onFormSubmit(e) {
   e.preventDefault();
   const messageInputRef = form.querySelector('textarea');
   const emailInputRef = form.querySelector('input');
+  const email = form.elements.email.value;
+  const message = form.elements.message.value;
 
-  if (!form.elements.email.value) {
+  if (!email) {
     emailInputRef.classList.add('input--error');
     return;
   }
 
   emailInputRef.classList.remove('input--error');
 
-  if (!form.elements.message.value) {
+  if (!message) {
     messageInputRef.classList.add('input--error');
     return;
   }
   messageInputRef.classList.remove('input--error');
 
-  console.log(data);
+  console.log({ email, message });
   e.target.reset();
   localStorage.removeItem('feedback-form-state');
 }

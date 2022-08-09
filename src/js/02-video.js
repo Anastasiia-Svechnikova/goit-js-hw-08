@@ -11,7 +11,9 @@ function onTimeUpdate(e) {
 const playTime = JSON.parse(localStorage.getItem('videoplayer-current-time'));
 // const playTime = localStorage.getItem('videoplayer-current-time');
 
-player.setCurrentTime(playTime);
+if (playTime) {
+  player.setCurrentTime(playTime);
+}
 
 player.on('play', () => {
   document.body.classList.toggle('on-play');
